@@ -1,0 +1,98 @@
+.app {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.configurator{
+    position: absolute;
+    right: 24px;
+    width: 320px;
+    top: 10vh;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 20px;
+}
+
+.configurator-header{
+    padding: 10px 20px;
+    border-radius: 20px 20px 0px 0px;
+    background-color: rgba(113, 163, 47, 1);
+    color: rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.configurator-container{
+    padding: 20px;
+    color: rgba(102, 102, 102, 1);
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(235, 235, 235, 1);
+}
+
+.title-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.title-text p{
+    padding-right:10px;
+}
+
+.title-text span{
+    color: rgba(113, 163, 47, 1);
+}
+
+
+.garden-properties{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(235, 235, 235, 1);
+}
+
+.add-btn{
+    padding: 12px 25px;
+    border-radius: 30px;
+    background: rgba(47, 50, 43, 1);
+    border: transparent;
+    color: rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.add-btn span{
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+.configurator-footer{
+    background: rgba(113, 163, 47, 1);
+    border-radius: 0px 0px 20px 20px;
+    color: rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.configurator-footer button{
+    padding: 12px 20px;
+    margin: 15px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 30px;
+    color: rgba(255, 255, 255, 1);
+}

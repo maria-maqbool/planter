@@ -1,16 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { MdDeleteOutline } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaRegEdit } from "react-icons/fa";
 import GardenProperties from './GardenProperties';
 import { IoIosAddCircle } from "react-icons/io";
-import { MdKeyboardArrowRight } from "react-icons/md";
 import GardenSize from './GardenSize';
 import PlanterQuantity from './PlanterQuantity';
 import PlanterColor from './PlanterColor';
 import PlanterSize from './PlanterSize';
 import Inclusion from './Inclusion';
-
+import { GardenSizeContext } from '../App'
 
 const Properties = [
     {
@@ -42,13 +41,17 @@ const Properties = [
 
 const Configurator = () => {
 
-    // const [isOpen, setIsOpen] = useState(false);
+    const { plantPositions, setPlantPositions } = useContext(GardenSizeContext) 
+  const addPlant = () => {
+    // Calculate the position for the new plant based on the position of the last plant
+    const lastPosition = plantPositions[plantPositions.length - 1];
+    const newPosition = lastPosition
+      ? [lastPosition[0] + 1, lastPosition[1], lastPosition[2]]
+      : [1, 0, 0.147];
 
-    // const toggleAccordion = () => {
-    //     setIsOpen(!isOpen);
-    // };
-
-
+    // Add the new plant position to the array
+    setPlantPositions(prevPositions => [...prevPositions, newPosition]);
+  };
     return (
         <div className='configurator'>
             <div className='configurator-header'>
@@ -67,60 +70,13 @@ const Configurator = () => {
                     </div>
                     {
                         Properties.map((item) => (
-
                             <GardenProperties key={item.id} title={item.property} acordianItem={item.acordianItem} />
                         ))
                     }
 
-
-
-
-                    {/* <div>
-                        <div className="garden-properties" onClick={toggleAccordion}>
-                            <p>Garden Size</p>
-                            <MdKeyboardArrowRight />
-                        </div>
-                        {isOpen && <div className="accordion-content">content</div>}
-                    </div>
-
-                    <div>
-                        <div className="garden-properties" onClick={toggleAccordion}>
-                            <p>Number of quantity of planter</p>
-                            <MdKeyboardArrowRight />
-                        </div>
-                        {isOpen && <div className="accordion-content">content</div>}
-                    </div>
-
-                    <div>
-                        <div className="garden-properties" onClick={toggleAccordion}>
-                            <p>Planter color</p>
-                            <MdKeyboardArrowRight />
-                        </div>
-                        {isOpen && <div className="accordion-content">content</div>}
-                    </div>
-
-                    <div>
-                        <div className="garden-properties" onClick={toggleAccordion}>
-                            <p>Planter size</p>
-                            <MdKeyboardArrowRight />
-                        </div>
-                        {isOpen && <div className="accordion-content">content</div>}
-
-                    </div>
-
-                    <div>
-                        <div className="garden-properties" onClick={toggleAccordion}>
-                            <p>Inclusion</p>
-                            <MdKeyboardArrowRight />
-                        </div>
-                        {isOpen && <div className="accordion-content">content</div>}
-
-                    </div> */}
-
                 </div>
 
-
-                <button className='add-btn'>
+                <button className='add-btn'  onClick={addPlant}>
                     Add Planter <span><IoIosAddCircle /></span>
                 </button>
             </div>
